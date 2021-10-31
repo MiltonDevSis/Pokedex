@@ -15,7 +15,7 @@
         android:layout_marginBottom="8dp">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imagePokemon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -33,7 +33,7 @@
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/imagePokemon" />
 
         <TextView
             android:id="@+id/textPokemonName"
@@ -47,7 +47,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textPokemonNumber" />
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/llTypes"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -59,28 +59,34 @@
             app:layout_constraintTop_toBottomOf="@+id/textPokemonName">
 
             <TextView
-                android:id="@+id/textViewType1"
-                android:layout_width="match_parent"
+                android:id="@+id/textType1"
+                android:layout_width="145dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="1"
+                android:layout_marginBottom="21dp"
                 android:background="#fd7d24"
                 android:gravity="center"
                 android:text="Fire"
-                android:textColor="@color/white" />
+                android:layout_marginStart="15dp"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textViewType2"
-                android:layout_width="match_parent"
+                android:id="@+id/textType2"
+                android:layout_width="145dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_weight="1"
+                android:layout_marginBottom="21dp"
                 android:background="@android:color/holo_blue_dark"
                 android:gravity="center"
                 android:text="Water"
-                android:textColor="@color/white" />
+                android:layout_marginEnd="15dp"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
