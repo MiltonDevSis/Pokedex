@@ -20,7 +20,7 @@ class PokemonViewHolder(
 
         //TODO: load image with Glide
 
-        pokemonNumber.text = "Nº ${item.number}"
+        pokemonNumber.text = "Nº ${item.formatterNumber}"
         pokemonName.text = item.name
         pokemonType1.text = item.types[0].name
 

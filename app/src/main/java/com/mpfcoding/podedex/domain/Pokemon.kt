@@ -5,5 +5,7 @@ class Pokemon(
     val number: Int,
     val name: String,
     val types: List<PokemonType>
-)
+){
+    val formatterNumber = number.toString().padStart(3, '0')
+}
 
