@@ -1,6 +1,7 @@
 package com.mpfcoding.podedex.presentation
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mpfcoding.podedex.api.repository.PokemonRepository
@@ -32,7 +33,12 @@ class MainActivity : AppCompatActivity() {
 
         val pokemons = listOf(pok, pok, pok)
 
-        val pokemonApi = PokemonRepository.listPokemons()
+        Thread {
+            val pokemonApi = PokemonRepository.listPokemons()
+            Log.i("POKEMON_API", pokemonApi.toString())
+        }.start()
+
+
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager

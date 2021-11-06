@@ -23,21 +23,29 @@ object PokemonRepository {
         service = retrofit.create(PokemonService::class.java)
     }
 
-    fun listPokemons(limit: Int = 151){
+    fun listPokemons(limit: Int = 151): PokemonsApiResult? {
         val call = service.listPokemons(limit)
 
-        call.enqueue(object : Callback<PokemonsApiResult>{
-            override fun onResponse(
-                call: Call<PokemonsApiResult>,
-                response: Response<PokemonsApiResult>) {
-                Log.e("POKEMON_API", "Pokemon list loaded")
-                val data = response.body()
-            }
+        return call.execute().body()
 
-            override fun onFailure(call: Call<PokemonsApiResult>, t: Throwable) {
-                Log.e("POKEMON_API", "Error loading pokemon list.", t)
-            }
-
-        })
+//        call.enqueue(object : Callback<PokemonsApiResult>{
+//            override fun onResponse(
+//                call: Call<PokemonsApiResult>,
+//                response: Response<PokemonsApiResult>) {
+//                Log.e("POKEMON_API", "Pokemon list loaded")
+//
+//                if (response.isSuccessful){
+//                    val body = response.body()
+//
+//                    body?.results.let {
+//
+//                    }
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<PokemonsApiResult>, t: Throwable) {
+//                Log.e("POKEMON_API", "Error loading pokemon list.", t)
+//            }
+//        })
     }
 }
