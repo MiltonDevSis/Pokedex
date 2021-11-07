@@ -3,7 +3,8 @@ package com.mpfcoding.podedex.api.repository
 import com.mpfcoding.podedex.api.model.PokemonsApiResult
 import com.mpfcoding.podedex.api.model.SinglePokemonApiResultDescription
 import com.mpfcoding.podedex.api.service.PokemonService
-import com.mpfcoding.podedex.domain.Pokemon
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -12,8 +13,14 @@ object PokemonRepository {
     private val service: PokemonService
 
     init {
+
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+        val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
+
         val retrofit = Retrofit.Builder()
             .baseUrl("https://pokeapi.co/api/v2/")
+            .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
