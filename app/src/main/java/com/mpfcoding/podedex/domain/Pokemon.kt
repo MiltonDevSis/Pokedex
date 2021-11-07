@@ -1,11 +1,10 @@
 package com.mpfcoding.podedex.domain
 
 class Pokemon(
-    val imageUrl: String? = null,
-    val number: Int? = null,
+    val imageUrl: String,
+    val number: Int,
     val name: String,
-    val url: String,
-    val types: List<PokemonType>? = null
+    val types: List<PokemonType>
 ){
     val formatterNumber = number.toString().padStart(3, '0')
 }

@@ -47,9 +47,18 @@ class MainActivity : AppCompatActivity() {
         pokemonsApiResult?.results?.let {
             val layoutManager = LinearLayoutManager(this)
 
-            recyclerView.post {
+            val pokemon: List<Pokemon> = it.map { pokemonResult ->
+                Pokemon(
+                    "",
+                    1,
+                    pokemonResult.name,
+                    listOf(PokemonType("Fire"))
+                )
+            }
+
+                recyclerView.post {
                 recyclerView.layoutManager = layoutManager
-                recyclerView.adapter = PokemonAdapter(it)
+                recyclerView.adapter = PokemonAdapter(pokemon)
             }
         }
     }

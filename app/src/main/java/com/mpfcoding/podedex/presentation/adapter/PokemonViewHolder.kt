@@ -20,15 +20,15 @@ class PokemonViewHolder(
 
         //TODO: load image with Glide
 
-//        pokemonNumber.text = "Nº ${item.formatterNumber}"
+        pokemonNumber.text = "Nº ${item.formatterNumber}"
         pokemonName.text = item.name
-//        pokemonType1.text = item.types[0].name
-//
-//        if (item.types.size > 1){
-//            pokemonType2.visibility = View.VISIBLE
-//            pokemonType2.text = item.types[1].name
-//        }else{
-//            pokemonType2.visibility = View.GONE
-//        }
+        pokemonType1.text = item.types[0].name
+
+        if (item.types.size > 1){
+            pokemonType2.visibility = View.VISIBLE
+            pokemonType2.text = item.types[1].name
+        }else{
+            pokemonType2.visibility = View.GONE
+        }
     }
 }

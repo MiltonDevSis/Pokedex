@@ -47,10 +47,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textPokemonNumber" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:id="@+id/llTypes"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="20dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="30dp"
@@ -58,35 +58,33 @@
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@+id/textPokemonName">
 
-            <TextView
+            <Button
                 android:id="@+id/textType1"
                 android:layout_width="145dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="21dp"
                 android:background="#fd7d24"
-                android:gravity="center"
                 android:text="Fire"
+                android:layout_marginEnd="5dp"
                 android:layout_marginStart="15dp"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <Button
                 android:id="@+id/textType2"
                 android:layout_width="145dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="21dp"
                 android:background="@android:color/holo_blue_dark"
-                android:gravity="center"
                 android:text="Water"
+                android:layout_marginStart="5dp"
                 android:layout_marginEnd="15dp"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
