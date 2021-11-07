@@ -1,9 +1,9 @@
 package com.mpfcoding.podedex.presentation
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.mpfcoding.podedex.api.repository.PokemonRepository
 import com.mpfcoding.podedex.databinding.ActivityMainBinding
 import com.mpfcoding.podedex.domain.Pokemon
@@ -13,35 +13,44 @@ import com.mpfcoding.podedex.presentation.adapter.PokemonAdapter
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val recyclerView = binding.recyclerView
+        recyclerView = binding.recyclerView
 
-        val pok = Pokemon(
-                "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/009.png",
-                9,
-                "Pikachu",
-                listOf(
-                    PokemonType("Earth"),
-                    PokemonType("Teste")
-                )
-            )
+//        val pok = Pokemon(
+//                "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/009.png",
+//                9,
+//                "Pikachu",
+//            "",
+//                listOf(
+//                    PokemonType("Earth"),
+//                    PokemonType("Teste")
+//                )
+//            )
 
-        val pokemons = listOf(pok, pok, pok)
+//        val pokemons = listOf(pok, pok, pok)
 
-        Thread {
-            val pokemonApi = PokemonRepository.listPokemons()
-            Log.i("POKEMON_API", pokemonApi.toString())
+        Thread{
+            loadPokemons()
         }.start()
+    }
 
+    private fun loadPokemons() {
 
+        val pokemonsApiResult = PokemonRepository.listPokemons()
 
-        val layoutManager = LinearLayoutManager(this)
-        recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = PokemonAdapter(pokemons)
+        pokemonsApiResult?.results?.let {
+            val layoutManager = LinearLayoutManager(this)
+
+            recyclerView.post {
+                recyclerView.layoutManager = layoutManager
+                recyclerView.adapter = PokemonAdapter(it)
+            }
+        }
     }
 }

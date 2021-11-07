@@ -1,12 +1,7 @@
 package com.mpfcoding.podedex.api.repository
 
-import android.util.Log
 import com.mpfcoding.podedex.api.model.PokemonsApiResult
-import com.mpfcoding.podedex.api.model.SinglePokemonApiResult
 import com.mpfcoding.podedex.api.service.PokemonService
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
