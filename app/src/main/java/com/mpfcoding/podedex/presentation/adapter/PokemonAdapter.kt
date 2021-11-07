@@ -7,7 +7,7 @@ import com.mpfcoding.podedex.databinding.PokemonItemBinding
 import com.mpfcoding.podedex.domain.Pokemon
 
 class PokemonAdapter(
-    private val items: List<Pokemon>
+    private val items: List<Pokemon?>
 ) : RecyclerView.Adapter<PokemonViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {

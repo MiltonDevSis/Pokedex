@@ -1,7 +1,9 @@
 package com.mpfcoding.podedex.api.repository
 
 import com.mpfcoding.podedex.api.model.PokemonsApiResult
+import com.mpfcoding.podedex.api.model.SinglePokemonApiResultDescription
 import com.mpfcoding.podedex.api.service.PokemonService
+import com.mpfcoding.podedex.domain.Pokemon
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -22,25 +24,11 @@ object PokemonRepository {
         val call = service.listPokemons(limit)
 
         return call.execute().body()
+    }
 
-//        call.enqueue(object : Callback<PokemonsApiResult>{
-//            override fun onResponse(
-//                call: Call<PokemonsApiResult>,
-//                response: Response<PokemonsApiResult>) {
-//                Log.e("POKEMON_API", "Pokemon list loaded")
-//
-//                if (response.isSuccessful){
-//                    val body = response.body()
-//
-//                    body?.results.let {
-//
-//                    }
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<PokemonsApiResult>, t: Throwable) {
-//                Log.e("POKEMON_API", "Error loading pokemon list.", t)
-//            }
-//        })
+    fun getPokemons(number: Int): SinglePokemonApiResultDescription? {
+        val call = service.getPokemon(number)
+
+        return call.execute().body()
     }
 }

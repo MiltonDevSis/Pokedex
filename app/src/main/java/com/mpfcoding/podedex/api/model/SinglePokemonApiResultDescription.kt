@@ -1,6 +1,7 @@
 package com.mpfcoding.podedex.api.model
 
 data class SinglePokemonApiResultDescription(
+    val id: Int,
     val name: String,
-    val types: PokemonTypeSlot
+    val types: List<PokemonTypeSlot>
 )
