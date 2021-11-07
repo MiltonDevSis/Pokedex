@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.mpfcoding.podedex.api.repository.PokemonRepository
 import com.mpfcoding.podedex.domain.Pokemon
+import com.mpfcoding.podedex.utils.Constants
 
 class MainViewModel : ViewModel() {
 
@@ -25,7 +26,7 @@ class MainViewModel : ViewModel() {
 
             pokemons.postValue(it.map { pokemonResult ->
                 val number = pokemonResult.url
-                    .replace("https://pokeapi.co/api/v2/pokemon/", "")
+                    .replace(Constants.POKEMON_API_REPLACE, "")
                     .replace("/", "").toInt()
 
                 val pokemonApiResult = PokemonRepository.getPokemons(number)

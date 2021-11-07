@@ -7,7 +7,8 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    android:layout_margin="8dp">
+    android:layout_margin="8dp"
+    android:background="#F2F2F2">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -29,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:text="Nº 001"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imagePokemon" />
@@ -61,7 +62,7 @@
                 android:id="@+id/textType1"
                 android:layout_width="145dp"
                 android:layout_height="wrap_content"
-                android:background="#fd7d24"
+                android:background="@color/black"
                 android:text="Fire"
                 android:layout_marginEnd="5dp"
                 android:layout_marginStart="15dp"
@@ -74,10 +75,10 @@
                 android:id="@+id/textType2"
                 android:layout_width="145dp"
                 android:layout_height="wrap_content"
-                android:background="@android:color/holo_blue_dark"
-                android:text="Water"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="15dp"
+                android:text="Water"
+                android:background="@color/black"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

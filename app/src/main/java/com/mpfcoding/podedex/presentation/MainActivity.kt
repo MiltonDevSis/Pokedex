@@ -31,6 +31,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadRecyclerView(pokemons: List<Pokemon?>){
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = PokemonAdapter(pokemons)
+        recyclerView.adapter = PokemonAdapter(pokemons, applicationContext)
     }
 }
