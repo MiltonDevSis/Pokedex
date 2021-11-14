@@ -2,7 +2,9 @@ package com.mpfcoding.podedex.presentation.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.mpfcoding.podedex.api.repository.PokemonRepository
+import com.mpfcoding.podedex.api.model.PokemonsApiResult
+import com.mpfcoding.podedex.api.model.SinglePokemonApiResultDescription
+import com.mpfcoding.podedex.api.repository.PokemonService
 import com.mpfcoding.podedex.domain.Pokemon
 import com.mpfcoding.podedex.utils.Constants
 
@@ -20,7 +22,7 @@ class MainViewModel : ViewModel() {
 
     private fun loadPokemons() {
 
-        val pokemonsApiResult = PokemonRepository.listPokemons()
+        val pokemonsApiResult = PokemonService.listPokemons()
 
         pokemonsApiResult?.results?.let {
 
@@ -29,7 +31,7 @@ class MainViewModel : ViewModel() {
                     .replace(Constants.POKEMON_API_REPLACE, "")
                     .replace("/", "").toInt()
 
-                val pokemonApiResult = PokemonRepository.getPokemons(number)
+                val pokemonApiResult = PokemonService.getPokemons(number)
 
                 pokemonApiResult?.let {
                     Pokemon(

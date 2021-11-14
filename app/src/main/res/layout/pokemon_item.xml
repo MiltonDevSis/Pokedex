@@ -7,7 +7,7 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    android:layout_margin="8dp"
+    android:layout_margin="3dp"
     android:background="#F2F2F2">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,8 +17,8 @@
 
         <ImageView
             android:id="@+id/imagePokemon"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="155dp"
+            android:layout_height="155dp"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:text="Nº 001"
-            android:textSize="16sp"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imagePokemon" />
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:text="Pikachu"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -51,29 +51,30 @@
             android:id="@+id/llTypes"
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="10dp"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@+id/textPokemonName">
 
             <Button
                 android:id="@+id/textType1"
-                android:layout_width="145dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/black"
                 android:text="Fire"
                 android:layout_marginEnd="5dp"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="5dp"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_weight="1"/>
 
             <Button
                 android:id="@+id/textType2"
-                android:layout_width="145dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="15dp"
@@ -82,7 +83,8 @@
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_weight="1"/>
 
         </LinearLayout>
 
