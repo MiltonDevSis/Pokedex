@@ -27,7 +27,7 @@ object PokemonService {
         service = retrofit.create(PokemonService::class.java)
     }
 
-    fun listPokemons(limit: Int = 151): PokemonsApiResult? {
+    fun listPokemons(limit: Int = 30): PokemonsApiResult? {
         val call = service.listPokemons(limit)
 
         return call.execute().body()

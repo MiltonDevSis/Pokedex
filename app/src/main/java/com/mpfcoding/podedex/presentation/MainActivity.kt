@@ -1,15 +1,14 @@
 package com.mpfcoding.podedex.presentation
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.MotionEvent
 import android.view.View
-import android.widget.AdapterView
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.get
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
+import com.mpfcoding.podedex.PokemonActivity
 import com.mpfcoding.podedex.api.repository.PokemonService
 import com.mpfcoding.podedex.databinding.ActivityMainBinding
 import com.mpfcoding.podedex.domain.Pokemon
@@ -17,7 +16,7 @@ import com.mpfcoding.podedex.presentation.adapter.PokemonAdapter
 import com.mpfcoding.podedex.presentation.viewmodel.MainViewModel
 import com.mpfcoding.podedex.utils.listener.RecyclerItemClickListener
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var recyclerView: RecyclerView
@@ -40,7 +39,6 @@ class MainActivity : AppCompatActivity() {
                 RecyclerItemClickListener.OnItemClickListener {
 
                 override fun onItemClick(view: View?, position: Int) {
-                    Toast.makeText(applicationContext, "Position ${position + 1}", Toast.LENGTH_LONG).show()
                     Thread {
                         loadPokemon(position)
                     }.start()
@@ -52,9 +50,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadPokemon(position: Int){
+        val gson = Gson()
         val incrementaClick = position + 1
         val pokemon = PokemonService.getPokemons(incrementaClick)
-        val teste = pokemon
+        val intent = Intent(this@MainActivity, PokemonActivity::class.java)
+        intent.putExtra("Pokemon", gson.toJson(pokemon))
+        startActivity(intent)
     }
 
     private fun loadRecyclerView(pokemons: List<Pokemon?>){
