@@ -2,7 +2,6 @@ package com.mpfcoding.podedex.presentation.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.mpfcoding.podedex.api.model.PokemonsApiResult
 import com.mpfcoding.podedex.api.model.SinglePokemonApiResultDescription
 import com.mpfcoding.podedex.api.repository.PokemonService
 import com.mpfcoding.podedex.domain.Pokemon
@@ -18,7 +17,6 @@ class MainViewModel : ViewModel() {
             loadPokemons()
         }.start()
     }
-
 
     private fun loadPokemons() {
 

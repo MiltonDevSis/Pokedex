@@ -2,7 +2,9 @@ package com.mpfcoding.podedex.presentation.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -13,7 +15,15 @@ import com.mpfcoding.podedex.utils.PokemonTypesColor
 
 class PokemonViewHolder(
     private val binding: PokemonItemBinding,
-) : RecyclerView.ViewHolder(binding.root) {
+) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
+
+    override fun onClick(p0: View?) {
+        val position = adapterPosition
+
+        when(p0?.id){
+
+        }
+    }
 
     @SuppressLint("SetTextI18n")
     fun bind(context: Context, item: Pokemon?) = with(itemView) {

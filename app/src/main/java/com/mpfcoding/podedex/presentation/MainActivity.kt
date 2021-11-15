@@ -7,6 +7,7 @@ import android.widget.AdapterView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mpfcoding.podedex.api.repository.PokemonService
@@ -14,6 +15,7 @@ import com.mpfcoding.podedex.databinding.ActivityMainBinding
 import com.mpfcoding.podedex.domain.Pokemon
 import com.mpfcoding.podedex.presentation.adapter.PokemonAdapter
 import com.mpfcoding.podedex.presentation.viewmodel.MainViewModel
+import com.mpfcoding.podedex.utils.listener.RecyclerItemClickListener
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,6 +34,27 @@ class MainActivity : AppCompatActivity() {
         viewModel.pokemons.observe(this,  {
             loadRecyclerView(it)
         })
+
+        recyclerView.addOnItemTouchListener(
+            RecyclerItemClickListener(applicationContext, object :
+                RecyclerItemClickListener.OnItemClickListener {
+
+                override fun onItemClick(view: View?, position: Int) {
+                    Toast.makeText(applicationContext, "Position ${position + 1}", Toast.LENGTH_LONG).show()
+                    Thread {
+                        loadPokemon(position)
+                    }.start()
+
+                }
+            })
+        )
+
+    }
+
+    private fun loadPokemon(position: Int){
+        val incrementaClick = position + 1
+        val pokemon = PokemonService.getPokemons(incrementaClick)
+        val teste = pokemon
     }
 
     private fun loadRecyclerView(pokemons: List<Pokemon?>){
